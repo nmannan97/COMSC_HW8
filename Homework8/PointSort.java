@@ -36,8 +36,12 @@ public class PointSort
     }
     public static Pair getClosestPair(Point[] points)
     {
-        Pair p = new Pair(; 
+        Pair p = new Pair(points[0],points[1]); 
         return p;
+    }
+    public static Pair distance(Point[] PointsXAxis,int low, int high, Point[] PointYAxis)
+    {
+        
     }
     public static void main(String args[])
     {
