@@ -36,12 +36,33 @@ public class PointSort
     }
     public static Pair getClosestPair(Point[] points)
     {
-        Pair p = new Pair(points[0],points[1]); 
-        return p;
+        Pair p = new Pair(points[0],points[1]);
+        Pair ret = p;
+        double min = p.getDistance();
+        for(int i = 0;i<points.length;i++)
+        {
+            for(int j = 0;j<points.length;j++)
+            {
+                p = new Pair(points[i],points[j]);
+                if(min > p.getDistance()){ 
+                    min = p.getDistance();
+                    ret = p;
+                }
+            }
+        }
+        return ret;
     }
-    public static Pair distance(Point[] PointsXAxis,int low, int high, Point[] PointYAxis)
+    public static Pair distance(Point[] pointsOrderedOnX, int low, int high,
+        Point[] pointsOrderedOnY)
     {
-        
+        Pair p = new Pair(pointsOrderedOnX[0], pointsOrderedOnY[0]);
+        double min = p.getDistance();
+        if(low != high)
+        {
+            
+            distance(pointsOrderedOnX,low++,high,pointsOrderedOnY);
+        }
+        return p;
     }
     public static void main(String args[])
     {
